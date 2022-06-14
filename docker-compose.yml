@@ -5,14 +5,16 @@ services:
     build:
       context: "."
       dockerfile: Dockerfile
+      args:
+        ssh_pub_key: "{SSH_PUB_KEY}"
     container_name: dev-proxy
     ports:
-      - "9997:22"
+      - "{REMOTE_PORT}:22"
     environment:
       - VIRTUAL_HOST={DOMAIN}
       - LETSENCRYPT_HOST={DOMAIN}
     networks:
       service_network:
 networks:
-  service_network:
+  service_network: # Same network as nginxproxy/nginx-proxy is running on
     external: true
