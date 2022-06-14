@@ -27,7 +27,8 @@ DOMAIN: The domain pointing to the server, for example dev.domain.xyz
 Replace the docker network in docker-compose with the external network nginxproxy/nginx-proxy is using.  
 Open `REMOTE_PORT` in your firewall.
 
-Copy `tunnel.sh` to your local machine
+Copy `tunnel.sh` to your local machine.
+
 Run it passing the port of your local app as argument `./tunnel.sh 3000`
 
 ## Other
