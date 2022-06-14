@@ -2,7 +2,7 @@
 
 Creates a container which acts as a proxy between your local dev environment and the public web.
 
-It's is useful for testing services which need to establish a connection to your local dev server; for example Webhooks, Open Graph Meta Tags sharing and SEO optimizations.
+It's useful for testing services which need to establish a connection to your local dev server; for example Webhooks, Open Graph Meta Tags sharing and SEO optimizations.
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ A server running the following
 
 ## Instructions
 
-Clone the repo to your server and replace the placeholder variables in docker-compose.yml.
+Clone the repo to your server and replace the placeholder variables in `docker-compose.yml` and `tunnel.sh`.
 
 ```
 REMOTE_PORT: The port exposed to the public web
@@ -24,9 +24,11 @@ SSH_PUB_KEY: Your dev machines pub key (usually in ~/.ssh/id_rsa.pub)
 DOMAIN: The domain pointing to the server, for example dev.domain.xyz
 ```
 
-Replace the docker network in docker-compose with the external network nginxproxy/nginx-proxy is using.
+Replace the docker network in docker-compose with the external network nginxproxy/nginx-proxy is using.  
+Open `REMOTE_PORT` in your firewall.
 
-Copy `tunup.sh` to your local dev machine and run it.
+Copy `tunnel.sh` to your local machine
+Run it passing the port of your local app as argument `./tunnel.sh 3000`
 
 ## Other
 
